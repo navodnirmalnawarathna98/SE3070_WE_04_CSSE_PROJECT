@@ -5,7 +5,7 @@ import "./Home.css";
 const HomePage = () => {
   return (
     <div>
-      <a  href={`/login`}>login</a>
+      <h1>Home Page</h1>
     </div>
   )
 }

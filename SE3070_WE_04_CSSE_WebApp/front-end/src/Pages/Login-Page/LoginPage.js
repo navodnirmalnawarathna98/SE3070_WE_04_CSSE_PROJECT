@@ -2,6 +2,12 @@ import React from 'react';
 import "./LoginPage.css";
 
 const LoginPage = () => {
+
+    function Login() {
+        console.log("XXX");
+        window.location.href = "/homepage";
+    }
+
     return (
         <div>
             <div class="nova">
@@ -26,7 +32,8 @@ const LoginPage = () => {
                             <div class="error error-txt">Password can't be blank</div>
                         </div>
                         <div class="pass-txt"><a href="#">Forgot password?</a></div>
-                        <input type="submit" value="Login" />
+                        {/* <input type="submit" onClick={Login} value="Login" /> */}
+                        <button type='submit' onClick={Login}><a href="/homepage">Login</a></button>
                     </form>
                     <div class="sign-txt">New to Eazy Traveller? <a href="#">Signup now </a></div>
                 </div>
