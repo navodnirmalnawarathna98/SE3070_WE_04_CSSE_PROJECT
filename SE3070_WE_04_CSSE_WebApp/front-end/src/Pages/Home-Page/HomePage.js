@@ -30,7 +30,7 @@ const HomePage = () => {
               <div class="pass-txt"><a href="#">Forgot password?</a></div>
               <input type="submit" value="Login" />
             </form>
-            <div class="sign-txt">New to Eazy Traveller? <a href="#">Signup now</a></div>
+            <div class="sign-txt">New to Eazy Traveller? <a href="#">Signup now </a></div>
           </div>
     </div>
     </div>
