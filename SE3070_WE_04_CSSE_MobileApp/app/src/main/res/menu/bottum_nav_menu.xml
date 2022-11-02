@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:id="@+id/home"/>
+    <item android:title="Scan"
+        android:icon="@drawable/ic_baseline_qr_code_scanner_24"
+        android:id="@+id/scan"/>
+    <item android:title="Passengers"
+        android:icon="@drawable/ic_pngwing_com"
+        android:id="@+id/passengers"/>
+    <item android:title="Tripinfo"
+        android:icon="@drawable/ic_baseline_info_24"
+        android:id="@+id/tripinfo"/>
+    <item android:title="More"
+        android:icon="@drawable/ic_baseline_more_horiz_24"
+        android:id="@+id/more"/>
+</menu>
