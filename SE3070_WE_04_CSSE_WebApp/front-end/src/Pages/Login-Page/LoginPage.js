@@ -5,7 +5,7 @@ const LoginPage = () => {
 
     function Login() {
         console.log("XXX");
-        window.location.href = "/homepage";
+        window.location.href = "/allpassengers";
     }
 
     return (
@@ -33,7 +33,7 @@ const LoginPage = () => {
                         </div>
                         <div class="pass-txt"><a href="#">Forgot password?</a></div>
                         {/* <input type="submit" onClick={Login} value="Login" /> */}
-                        <button type='submit' onClick={Login}><a href="/homepage">Login</a></button>
+                        <button type='submit' onClick={Login}><a class='button-a' href="/allpassengers">Log in</a></button>
                     </form>
                     <div class="sign-txt">New to Eazy Traveller? <a href="#">Signup now </a></div>
                 </div>

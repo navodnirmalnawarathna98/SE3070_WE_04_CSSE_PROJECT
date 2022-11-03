@@ -13,50 +13,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
-   background-image: url(../../images/nn.jpg); 
+   background-image: url(../../images/easy_traveller.jpg); 
   background-repeat: no-repeat;
   background-size: 99rem 49rem;
  
 }
 
-.h-color{
-color: #5372f0;
+.nova .h-color{
+color: #BF40BF;
 font-size: 30px;
 font-weight: 100px;
 }
 
 
 
-::selection {
+.nova ::selection {
   color: #fff;
   background: #53f0e3;
 }
 
-.wrapper {
+.nova .wrapper {
   width: 380px;
   padding: 40px 30px 50px 30px;
   background: #fff;
   border-radius: 5px;
   text-align: center;
   box-shadow: 1px 5px 15px 10px rgb(50 26 168 / 10%);
-  margin-left: 32rem;
+  margin-left: 60rem;
 }
 
-.wrapper header {
+.nova .wrapper header {
   font-size: 35px;
   font-weight: 600;
 }
 
-.wrapper form {
+.nova .wrapper form {
   margin: 40px 0;
 }
 
-form .field {
+.nova form .field {
   width: 100%;
   margin-bottom: 20px;
 }
 
-form .field.shake {
+.nova form .field.shake {
   animation: shake 0.3s ease-in-out;
 }
 
@@ -75,37 +75,37 @@ form .field.shake {
   }
 }
 
-form .field .input-area {
+.nova form .field .input-area {
   height: 50px;
   width: 100%;
   position: relative;
 }
 
-form input {
+.nova form input {
   width: 100%;
   height: 100%;
   outline: none;
   padding: 0 45px;
   font-size: 18px;
   background: none;
-  caret-color: #5372f0;
+  caret-color: #BF40BF;
   border-radius: 5px;
   border: 1px solid #bfbfbf;
   border-bottom-width: 2px;
   transition: all 0.2s ease;
 }
 
-form .field input:focus,
-form .field.valid input {
-  border-color: #5372f0;
+.nova form .field input:focus,
+.nova form .field.valid input {
+  border-color: #BF40BF;
 }
 
-form .field.shake input,
-form .field.error input {
+.nova form .field.shake input,
+.nova form .field.error input {
   border-color: #dc3545;
 }
 
-.field .input-area i {
+.nova .field .input-area i {
   position: absolute;
   top: 50%;
   font-size: 18px;
@@ -113,73 +113,85 @@ form .field.error input {
   transform: translateY(-50%);
 }
 
-.input-area .icon {
+.nova .input-area .icon {
   left: 15px;
   color: #bfbfbf;
   transition: color 0.2s ease;
 }
 
-.input-area .error-icon {
+.nova .input-area .error-icon {
   right: 15px;
   color: #dc3545;
 }
 
-form input:focus ~ .icon,
-form .field.valid .icon {
-  color: #5372f0;
+.nova form input:focus ~ .icon,
+.nova form .field.valid .icon {
+  color: #BF40BF;
 }
 
-form .field.shake input:focus ~ .icon,
-form .field.error input:focus ~ .icon {
+.nova form .field.shake input:focus ~ .icon,
+.nova form .field.error input:focus ~ .icon {
   color: #bfbfbf;
 }
 
-form input::placeholder {
+.nova form input::placeholder {
   color: #bfbfbf;
   font-size: 17px;
 }
 
-form .field .error-txt {
+.nova form .field .error-txt {
   color: #dc3545;
   text-align: left;
   margin-top: 5px;
 }
 
-form .field .error {
+.nova form .field .error {
   display: none;
 }
 
-form .field.shake .error,
-form .field.error .error {
+.nova form .field.shake .error,
+.nova form .field.error .error {
   display: block;
 }
 
-form .pass-txt {
+.nova form .pass-txt {
   text-align: left;
   margin-top: -10px;
 }
 
-.wrapper a {
-  color: #5372f0;
+.nova .wrapper a.button-a {
+  color: white;
+  font-size: 20px;
   text-decoration: none;
 }
 
-.wrapper a:hover {
+.nova .wrapper a.button-a:hover {
+  text-decoration: none;
+}
+
+.nova .wrapper a {
+  color: #BF40BF;
+  text-decoration: none;
+}
+
+.nova .wrapper a:hover {
   text-decoration: underline;
 }
 
-form input[type="submit"] {
-  height: 50px;
+.nova form button[type="submit"] {
+  height: 45px;
+  width: 300px;
   margin-top: 30px;
   color: #fff;
   padding: 0;
   border: none;
-  background: #5372f0;
+  border-radius: 10px;
+  background: #CF9FFF;
   cursor: pointer;
   border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
 
-form input[type="submit"]:hover {
-  background: #2c52ed;
+.nova form button[type="submit"]:hover {
+  background: #BF40BF;
 }
