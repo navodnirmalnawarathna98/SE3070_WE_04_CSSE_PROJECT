@@ -1,15 +1,53 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 import "./admin-style.css"
+import admin_profile from "../images/admin_profile.jpg"
 
 import NavigationBar from './Components/NavigationBar'
-import Search from './Components/Search'
 
 const addPassengers =()=>{
   window.location.href = "/addpassengers";
 }
 
 const AllPassengers = () => {
+
+  // get all passengers  
+  const [passengers, setPassengers] = useState({});
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+
+    function passengers() {
+      axios.get(`http://localhost:8070/passengers/search/?q=${query}`).then((res) => {
+        setPassengers(res.data)
+      }).catch((err) => {
+          alert(err.message);
+      })
+    }
+
+    if (query.length === 0 || query.length > 1) passengers();
+
+  }, [query]);
+
+
+
+  // delete sample
+
+  const deletePassenger =(id)=>{
+    axios.delete(`http://localhost:8070/passengers/delete/${id}`).then((res)=>{
+        axios.get("http://localhost:8070/passengers/").then((res) =>{
+            alert("Delete Successfully");
+            console.log(res.data);
+            setPassengers(res.data);
+        }).catch((err) => {
+            alert(err.message);
+        })
+    })
+  }
+
+
   return (
     <div className='admindashboard'>
 
@@ -17,7 +55,20 @@ const AllPassengers = () => {
 
         <section class="ad-dashboard">
 
-          <Search/>
+          <div>
+              <div class="ad-top">
+                  <i class="uil uil-bars sidebar-toggle"></i>
+
+                  <div class="ad-search-box">
+                      <i class="uil uil-search"></i>
+                      <input type="text" name='search' placeholder="Search here..." onChange={(e) => setQuery(e.target.value)} />
+                  </div>
+
+                  <button type="submit" class="ad-search-box-button">Search</button>
+
+                  <img src={admin_profile} alt="admin profile"/>
+              </div>
+          </div>
 
           <div class="ad-dash-content">
 
@@ -34,72 +85,38 @@ const AllPassengers = () => {
 
                   <thead>
                     <tr>
-                      <th scope="col">Institution Name</th>
-                      <th scope="col">Email</th>
+                      <th scope="col">First Name</th>
+                      <th scope="col">Last Name</th>
                       <th scope="col">Contact No</th>
-                      <th scope="col">Blood Type</th>
-                      <th scope="col">Blood Amount</th>
-                      <th scope="col">Due Date</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">NIC No</th>
+                      <th scope="col">Card Type</th>
+                      <th scope="col">Passenger Type</th>
+                      <th scope="col">State</th>
                       <th scope="col"></th>
                       <th scope="col"></th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    <tr>
-                      <td>Nawaloka</td>
-                      <td>nava@gmail.com</td>
-                      <td>0751125986</td>
-                      <td>A+</td>
-                      <td>59</td>
-                      <td>2022-06-12</td>
-                      <td><span class="data-list"><button className='button-accept'>Accept</button></span></td>
-                      <td><span class="data-list"><button className='button-reject'>Reject</button></span></td>
-                    </tr>
 
-                    <tr>
-                      <td>Asiri</td>
-                      <td>asiri@gmail.com</td>
-                      <td>0751125986</td>
-                      <td>O-</td>
-                      <td>109</td>
-                      <td>2022-06-24</td>
-                      <td><span class="data-list"><button className='button-accept'>Accept</button></span></td>
-                      <td><span class="data-list"><button className='button-reject'>Reject</button></span></td>
-                    </tr>
-
-                    <tr>
-                      <td>Apallo</td>
-                      <td>apallo@gmail.com</td>
-                      <td>0751125986</td>
-                      <td>AB+</td>
-                      <td>69</td>
-                      <td>2022-06-02</td>
-                      <td><span class="data-list"><button className='button-accept'>Accept</button></span></td>
-                      <td><span class="data-list"><button className='button-reject'>Reject</button></span></td>
-                    </tr>
-
-                    <tr>
-                      <td>Golden Key</td>
-                      <td>gk@gmail.com</td>
-                      <td>0751125986</td>
-                      <td>A-</td>
-                      <td>85</td>
-                      <td>2022-06-10</td>
-                      <td><span class="data-list"><button className='button-accept'>Accept</button></span></td>
-                      <td><span class="data-list"><button className='button-reject'>Reject</button></span></td>
-                    </tr>
-
-                    <tr>
-                      <td>Ninewells</td>
-                      <td>nine@gmail.com</td>
-                      <td>0751125986</td>
-                      <td>B+</td>
-                      <td>125</td>
-                      <td>2022-06-30</td>
-                      <td><span class="data-list"><button className='button-accept'>Accept</button></span></td>
-                      <td><span class="data-list"><button className='button-reject'>Reject</button></span></td>
-                    </tr>
+                    {passengers.length >0?(passengers.map((passenger)=>(
+                        <tr>
+                            <td>{passenger.firstName}</td>
+                            <td>{passenger.lastName}</td>
+                            <td>{passenger.contactNumber}</td>
+                            <td className='simple'>{passenger.email}</td>
+                            <td>{passenger.nic}</td>
+                            <td>{passenger.cardType}</td>
+                            <td>{passenger.passengerType}</td>
+                            <td>{passenger.state}</td>
+                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/passengersedit/${passenger._id}`}>Edit</a></button></span></td>
+                            <td><span class="data-list"><button className='button-reject' onClick={()=>{deletePassenger(passenger._id)}}>Delete</button></span></td>
+                        </tr>
+                    ))
+                    ):(
+                     <h3>No details found</h3>
+                    )}
 
                   </tbody>
 
