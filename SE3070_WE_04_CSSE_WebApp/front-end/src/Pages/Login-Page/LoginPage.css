@@ -178,10 +178,10 @@ font-weight: 100px;
   text-decoration: underline;
 }
 
-.nova form button[type="submit"] {
+.nova button[type="submit"] {
   height: 45px;
   width: 300px;
-  margin-top: 30px;
+  margin-top: 0px;
   color: #fff;
   padding: 0;
   border: none;
@@ -192,6 +192,6 @@ font-weight: 100px;
   transition: all 0.3s ease;
 }
 
-.nova form button[type="submit"]:hover {
+.nova button[type="submit"]:hover {
   background: #BF40BF;
 }

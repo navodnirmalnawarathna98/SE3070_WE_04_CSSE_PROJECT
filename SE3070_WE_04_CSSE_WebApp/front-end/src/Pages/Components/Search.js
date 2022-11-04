@@ -3,7 +3,7 @@ import admin_profile from "../../images/admin_profile.jpg"
 
 const Search = () => {
     return (
-      <div>
+      <React.Fragment>
           <div class="ad-top">
               <i class="uil uil-bars sidebar-toggle"></i>
   
@@ -16,7 +16,7 @@ const Search = () => {
               
               <img src={admin_profile} alt="admin profile"/>
           </div>
-      </div>
+      </React.Fragment>
     )
   }
   

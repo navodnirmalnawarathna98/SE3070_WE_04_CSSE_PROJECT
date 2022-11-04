@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import HomePage from "./Pages/Home-Page/HomePage";
 import AllPassengers from "./Pages/AllPassengers";
 import LoginPage from "./Pages/Login-Page/LoginPage";
 import AddPassengers from "./Pages/AddPassengers";
@@ -10,13 +9,12 @@ import AllIspectors from "./Pages/AllInspectors";
 import AddInspectors from "./Pages/AddInspectors";
 import EditInspectors from "./Pages/EditInspectors";
 
+import AddCard from "./Pages/AddCard";
+
 function App() {
   return (
     <Router>
       <Routes>
-
-        {/* Home Page */}
-        <Route path='/homepage' element={<HomePage />} />
 
         {/* Login Page */}
         <Route path='/' element={<LoginPage />} />
@@ -38,6 +36,9 @@ function App() {
 
         {/* Edit Inspectors Page */}
         <Route path="/editinspectors/:id" element={<EditInspectors />} />
+
+        {/* Add Card Page */}
+        <Route path='/addcard' element={<AddCard />} />
 
       </Routes>
     </Router>
