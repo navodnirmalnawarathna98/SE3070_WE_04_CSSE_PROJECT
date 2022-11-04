@@ -4,6 +4,7 @@ import HomePage from "./Pages/Home-Page/HomePage";
 import AllPassengers from "./Pages/AllPassengers";
 import LoginPage from "./Pages/Login-Page/LoginPage";
 import AddPassengers from "./Pages/AddPassengers";
+import EditPassengers from "./Pages/EditPassengers";
 
 function App() {
   return (
@@ -21,6 +22,9 @@ function App() {
 
         {/* Add Passengers Page */}
         <Route path='/addpassengers' element={<AddPassengers />} />
+
+        {/* Edit Passengers Page */}
+        <Route path="/editpassengers/:id" element={<EditPassengers />} />
 
       </Routes>
     </Router>
