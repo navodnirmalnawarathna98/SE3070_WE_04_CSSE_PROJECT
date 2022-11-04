@@ -4,4 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_txt">Home Text</string>
     <string name="home_txt2">Home Text 2</string>
+    <string name="btn_scan">scan</string>
+    <string name="text_passengers">passengers</string>
+    <string name="btn_hold">Hold</string>
 </resources>

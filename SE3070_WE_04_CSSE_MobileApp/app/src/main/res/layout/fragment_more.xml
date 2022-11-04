@@ -6,6 +6,11 @@
     android:layout_height="wrap_content"
     android:background="@android:color/holo_red_light"
     tools:context=".MoreFragment">
-    <include layout="@layout/toolbar"/>
+
+    <include
+        android:id="@+id/include2"
+        layout="@layout/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
