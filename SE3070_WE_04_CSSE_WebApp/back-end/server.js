@@ -28,31 +28,12 @@ connection.once("open", () => {
  const passengersRouter = require("./routes/passengersRouter");
  app.use("/passengers", passengersRouter);
 
-// // display blood volumes route
-// const bloodVolumesRouter = require("./routes/bloodVolumesRouter");
-// app.use("/bloodvolumes", bloodVolumesRouter);
+// add inspectors route
+const inspectorsRouter = require("./routes/inspectorsRouter");
+app.use("/inspectors", inspectorsRouter);
 
-// // Institution
-// const institutionRouter = require(`./routes/institutionRouter`);
-// app.use("/addRequest", institutionRouter);
 
-// // Institution Regitration
-// const institutionRegRouter = require(`./routes/institutionRegRouter`);
-// app.use("/instreg", institutionRegRouter);
 
-// //seeker
-// const addSeekerRoute = require("./routes/seekerRoutes");
-// app.use("/Seeker", addSeekerRoute);
-
-// //seeker Blood Request routes
-// const bloodRequestRoutes = require("./routes/seekerBloodRequestRoutes");
-// app.use("/SeekerBloodRequest", bloodRequestRoutes);
-
-// //Donor
-// const usersRoutes = require("./routes/donorUser");
-
-// // route middleware
-// app.use("/donorUser", usersRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port number : ${PORT}`); // Dipaly in console if server is running

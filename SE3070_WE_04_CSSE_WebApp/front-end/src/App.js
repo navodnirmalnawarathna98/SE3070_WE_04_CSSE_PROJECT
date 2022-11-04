@@ -6,6 +6,10 @@ import LoginPage from "./Pages/Login-Page/LoginPage";
 import AddPassengers from "./Pages/AddPassengers";
 import EditPassengers from "./Pages/EditPassengers";
 
+import AllIspectors from "./Pages/AllInspectors";
+import AddInspectors from "./Pages/AddInspectors";
+import EditInspectors from "./Pages/EditInspectors";
+
 function App() {
   return (
     <Router>
@@ -25,6 +29,15 @@ function App() {
 
         {/* Edit Passengers Page */}
         <Route path="/editpassengers/:id" element={<EditPassengers />} />
+
+        {/* All Inspectors Page */}
+        <Route path='/allinspectors' element={<AllIspectors />} />
+
+        {/* Add Inspectors Page */}
+        <Route path='/addinspectors' element={<AddInspectors />} />
+
+        {/* Edit Inspectors Page */}
+        <Route path="/editinspectors/:id" element={<EditInspectors />} />
 
       </Routes>
     </Router>
