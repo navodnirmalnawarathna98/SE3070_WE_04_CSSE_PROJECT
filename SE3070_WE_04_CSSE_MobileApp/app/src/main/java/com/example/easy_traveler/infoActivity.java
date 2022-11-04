@@ -24,6 +24,7 @@ public class infoActivity extends AppCompatActivity {
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 singletonexample.AlertDialog(infoActivity.this);
             }
         });
