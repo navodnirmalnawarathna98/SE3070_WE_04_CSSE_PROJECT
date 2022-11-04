@@ -110,7 +110,7 @@ const AllPassengers = () => {
                             <td>{passenger.cardType}</td>
                             <td>{passenger.passengerType}</td>
                             <td>{passenger.state}</td>
-                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/passengersedit/${passenger._id}`}>Edit</a></button></span></td>
+                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/editpassengers/${passenger._id}`}>Edit</a></button></span></td>
                             <td><span class="data-list"><button className='button-reject' onClick={()=>{deletePassenger(passenger._id)}}>Delete</button></span></td>
                         </tr>
                     ))
