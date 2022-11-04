@@ -7,27 +7,27 @@ import admin_profile from "../images/admin_profile.jpg"
 
 import NavigationBar from './Components/NavigationBar'
 
-const AllPassengers = () => {
+const AllIspectors = () => {
 
-  const addPassengers =()=>{
-    window.location.href = "/addpassengers";
-  }
+    const addInspectors =()=>{
+        window.location.href = "/addinspectors";
+    } 
 
-  // get all passengers  
-  const [passengers, setPassengers] = useState({});
+  // get all inspectors  
+  const [inspectors, setInspectors] = useState({});
   const [query, setQuery] = useState("");
 
   useEffect(() => {
 
-    function passengers() {
-      axios.get(`http://localhost:8070/passengers/search/?q=${query}`).then((res) => {
-        setPassengers(res.data)
+    function inspectors() {
+      axios.get(`http://localhost:8070/inspectors/search/?q=${query}`).then((res) => {
+        setInspectors(res.data)
       }).catch((err) => {
           alert(err.message);
       })
     }
 
-    if (query.length === 0 || query.length > 1) passengers();
+    if (query.length === 0 || query.length > 1) inspectors();
 
   }, [query]);
 
@@ -35,12 +35,12 @@ const AllPassengers = () => {
 
   // delete sample
 
-  const deletePassenger =(id)=>{
-    axios.delete(`http://localhost:8070/passengers/delete/${id}`).then((res)=>{
-        axios.get("http://localhost:8070/passengers/").then((res) =>{
+  const deleteInspector =(id)=>{
+    axios.delete(`http://localhost:8070/inspectors/delete/${id}`).then((res)=>{
+        axios.get("http://localhost:8070/inspectors/").then((res) =>{
             alert("Delete Successfully");
             console.log(res.data);
-            setPassengers(res.data);
+            setInspectors(res.data);
         }).catch((err) => {
             alert(err.message);
         })
@@ -77,7 +77,7 @@ const AllPassengers = () => {
 
               <div className="ad-title">
                 <i class="uil uil-clock-three"></i>
-                <span class="text">All Passengers</span>
+                <span class="text">All Inspectors</span>
               </div>
 
               <div className="activity-data">
@@ -90,8 +90,7 @@ const AllPassengers = () => {
                       <th scope="col">Contact No</th>
                       <th scope="col">Email</th>
                       <th scope="col">NIC No</th>
-                      <th scope="col">Card Type</th>
-                      <th scope="col">Passenger Type</th>
+                      <th scope="col">City</th>
                       <th scope="col">State</th>
                       <th scope="col"></th>
                       <th scope="col"></th>
@@ -100,18 +99,17 @@ const AllPassengers = () => {
 
                   <tbody>
 
-                    {passengers.length >0?(passengers.map((passenger)=>(
+                    {inspectors.length >0?(inspectors.map((inspector)=>(
                         <tr>
-                            <td>{passenger.firstName}</td>
-                            <td>{passenger.lastName}</td>
-                            <td>{passenger.contactNumber}</td>
-                            <td className='simple'>{passenger.email}</td>
-                            <td>{passenger.nic}</td>
-                            <td>{passenger.cardType}</td>
-                            <td>{passenger.passengerType}</td>
-                            <td>{passenger.state}</td>
-                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/editpassengers/${passenger._id}`}>Edit</a></button></span></td>
-                            <td><span class="data-list"><button className='button-reject' onClick={()=>{deletePassenger(passenger._id)}}>Delete</button></span></td>
+                            <td>{inspector.firstName}</td>
+                            <td>{inspector.lastName}</td>
+                            <td>{inspector.contactNumber}</td>
+                            <td className='simple'>{inspector.email}</td>
+                            <td>{inspector.nic}</td>
+                            <td>{inspector.city}</td>
+                            <td>{inspector.state}</td>
+                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/editinspectors/${inspector._id}`}>Edit</a></button></span></td>
+                            <td><span class="data-list"><button className='button-reject' onClick={()=>{deleteInspector(inspector._id)}}>Delete</button></span></td>
                         </tr>
                     ))
                     ):(
@@ -125,7 +123,7 @@ const AllPassengers = () => {
 
 
               <div className="ad-title">
-                <button class="addPassengersButton" onClick={()=>{addPassengers()}}> + Add Passengers</button>
+                <button class="addPassengersButton" onClick={()=>{addInspectors()}}> + Add Inspectors</button>
                 <i class="uil uil-user-plus"></i>
               </div>
 
@@ -139,4 +137,4 @@ const AllPassengers = () => {
   )
 }
 
-export default AllPassengers
+export default AllIspectors
