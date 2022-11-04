@@ -1,10 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-
 import "./admin-style.css"
 import admin_profile from "../images/admin_profile.jpg"
-
 import NavigationBar from './Components/NavigationBar'
 
 const AllPassengers = () => {
@@ -49,6 +47,8 @@ const AllPassengers = () => {
 
 
   return (
+    <React.Fragment>
+
     <div className='admindashboard'>
 
         <NavigationBar/>
@@ -136,6 +136,8 @@ const AllPassengers = () => {
 
         </section>
     </div>
+
+    </React.Fragment>
   )
 }
 

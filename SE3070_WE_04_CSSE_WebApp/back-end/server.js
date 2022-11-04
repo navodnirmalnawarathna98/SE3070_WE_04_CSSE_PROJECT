@@ -32,6 +32,10 @@ connection.once("open", () => {
 const inspectorsRouter = require("./routes/inspectorsRouter");
 app.use("/inspectors", inspectorsRouter);
 
+// add card route
+const cardRouter = require("./routes/cardRouter");
+app.use("/card", cardRouter);
+
 
 
 
