@@ -24,9 +24,9 @@ connection.once("open", () => {
   console.log("MongoDB Database Connection Successfull"); // Display in console if connection is successful
 });
 
-// // add blood sample route
-// const addBloodSamplesRouter = require("./routes/addBloodSamplesRouter");
-// app.use("/addbloodsamples", addBloodSamplesRouter);
+ // add passengers route
+ const passengersRouter = require("./routes/passengersRouter");
+ app.use("/passengers", passengersRouter);
 
 // // display blood volumes route
 // const bloodVolumesRouter = require("./routes/bloodVolumesRouter");
