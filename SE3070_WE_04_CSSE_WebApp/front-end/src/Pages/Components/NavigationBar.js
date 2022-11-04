@@ -23,7 +23,7 @@ const NavigationBar = () => {
                           <i class="uil uil-user-plus"></i>
                           <span class="ad-link-name">Passengers</span>
                       </a></li>
-                      <li><a href="/bloodsamples">
+                      <li><a href="/allinspectors">
                           <i class="uil uil-user-md"></i>
                           <span class="ad-link-name">Inspectors</span>
                       </a></li>
