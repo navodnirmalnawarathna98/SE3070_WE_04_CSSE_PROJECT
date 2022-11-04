@@ -538,6 +538,9 @@ nav.close ~ .ad-dashboard .ad-top{
   }
 
 
+  
+
+
 
 
 
@@ -812,6 +815,15 @@ nav.close ~ .ad-dashboard .ad-top{
 .ad-form .form_wrapper button[type=submit]:focus {
     background: #BF40BF;
   }
+
+
+.ad-form .form_wrapper button[type=submit] a{
+    color: white;
+}
+
+.ad-form .form_wrapper button[type=submit] a:hover{
+  text-decoration: none;
+}
 
 .ad-form .form_wrapper input[type=checkbox], .form_wrapper input[type=radio] {
     border: 0;
