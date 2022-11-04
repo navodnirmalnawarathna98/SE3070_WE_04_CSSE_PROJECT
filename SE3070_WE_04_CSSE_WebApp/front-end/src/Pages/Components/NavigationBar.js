@@ -3,7 +3,7 @@ import logo from "../../images/logo.jpg"
 
 const NavigationBar = () => {
     return (
-      <div>
+      <React.Fragment>
           <nav>
               <div class="ad-logo-name">
                   <div class="ad-logo-image">
@@ -31,7 +31,7 @@ const NavigationBar = () => {
                           <i class="uil uil-map"></i>
                           <span class="ad-link-name">Routes</span>
                       </a></li>
-                      <li><a href="/seekerrequests">
+                      <li><a href="/addcard">
                           <i class="uil uil-credit-card"></i>
                           <span class="ad-link-name">Card Types</span>
                       </a></li>
@@ -68,7 +68,7 @@ const NavigationBar = () => {
                   </ul>
               </div>
           </nav>
-      </div>
+      </React.Fragment>
     )
   }
   

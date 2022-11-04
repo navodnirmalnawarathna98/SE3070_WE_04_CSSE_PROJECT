@@ -80,6 +80,9 @@ const EditPassengers = () => {
     };
 
     return (
+      <React.Fragment>
+
+
         <div className='admindashboard'>
     
             <NavigationBar/>
@@ -262,6 +265,9 @@ const EditPassengers = () => {
     
             </section>
         </div>
+
+
+        </React.Fragment>
     )
 }
 
