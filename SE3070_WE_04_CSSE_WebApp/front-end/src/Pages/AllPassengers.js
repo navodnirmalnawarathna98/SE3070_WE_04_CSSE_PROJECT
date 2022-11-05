@@ -7,16 +7,17 @@ import NavigationBar from './Components/NavigationBar'
 
 const AllPassengers = () => {
 
+  // add new passenger
   const addPassengers =()=>{
     window.location.href = "/addpassengers";
   }
 
-  // get all passengers  
+
+  // get all passengers and search using first name
   const [passengers, setPassengers] = useState({});
   const [query, setQuery] = useState("");
 
   useEffect(() => {
-
     function passengers() {
       axios.get(`http://localhost:8070/passengers/search/?q=${query}`).then((res) => {
         setPassengers(res.data)
@@ -24,15 +25,11 @@ const AllPassengers = () => {
           alert(err.message);
       })
     }
-
     if (query.length === 0 || query.length > 1) passengers();
-
   }, [query]);
 
 
-
   // delete sample
-
   const deletePassenger =(id)=>{
     axios.delete(`http://localhost:8070/passengers/delete/${id}`).then((res)=>{
         axios.get("http://localhost:8070/passengers/").then((res) =>{
@@ -110,8 +107,15 @@ const AllPassengers = () => {
                             <td>{passenger.cardType}</td>
                             <td>{passenger.passengerType}</td>
                             <td>{passenger.state}</td>
-                            <td><span class="data-list"><button className='button-accept'><a className='button-accept-a' title='' href={`/editpassengers/${passenger._id}`}>Edit</a></button></span></td>
-                            <td><span class="data-list"><button className='button-reject' onClick={()=>{deletePassenger(passenger._id)}}>Delete</button></span></td>
+                            <td><span class="data-list">
+                              <button className='button-accept'>
+                                {/* use template literals */}
+                              <a className='button-accept-a' title='' href={`/editpassengers/${passenger._id}`}>Edit</a>
+                              </button>
+                              </span></td>
+                            <td><span class="data-list">
+                              <button className='button-reject' onClick={()=>{deletePassenger(passenger._id)}}>Delete</button>
+                              </span></td>
                         </tr>
                     ))
                     ):(
