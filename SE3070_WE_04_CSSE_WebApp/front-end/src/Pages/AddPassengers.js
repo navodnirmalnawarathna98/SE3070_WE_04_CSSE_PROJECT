@@ -1,15 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
-
 import "./admin-style.css"
-
 import NavigationBar from './Components/NavigationBar'
 import Search from './Components/Search'
 
 
 const AddPassengers = () => {
 
+  // group the form data and store as state
   const [formData, setFormData] = useState({
 
     firstName: "",
@@ -25,6 +24,7 @@ const AddPassengers = () => {
 
   const { firstName, lastName, contactNumber, email, nic, cardType, passengerType, state } = formData;
 
+  // spread syntax to get all input values
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -69,6 +69,8 @@ const AddPassengers = () => {
   };
 
   return (
+    <React.Fragment>
+
     <div className='admindashboard'>
 
         <NavigationBar/>
@@ -87,10 +89,9 @@ const AddPassengers = () => {
                 <span class="text">Add Passengers</span>
               </div>
 
-              {/* ******************** */}
               <div className="row">
                 <div className="span6">
-                  {/* add blood sample form 02 */}
+                  {/* add blood sample form */}
                   <div className="ad-form">
                     <div className="form_wrapper">
                       <div className="form_container">
@@ -112,7 +113,7 @@ const AddPassengers = () => {
                                     type="text" 
                                     name="firstName" 
                                     value={firstName} 
-                                    placeholder="First Name" 
+                                    placeholder="First Name"
                                     pattern="[A-Za-z]{2,20}" 
                                     title="The first name must contain letters only" 
                                     onChange={(e) => onChange(e)} 
@@ -233,6 +234,9 @@ const AddPassengers = () => {
 
         </section>
     </div>
+
+
+    </React.Fragment>
   )
 }
 

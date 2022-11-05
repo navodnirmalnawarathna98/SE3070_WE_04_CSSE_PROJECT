@@ -11,7 +11,7 @@ const EditPassengers = () => {
     const [passenger, setPassenger] = useState({});
     const { id } = useParams();
 
-
+    // get all passenger details
     const getSampleData = async (id) => {
         const config = {
             headers: {
@@ -39,7 +39,7 @@ const EditPassengers = () => {
     }, [id]);
 
 
-    /*  Get Input value & Store in setCurrentPackage */
+    //Get Input value & Store in setCurrentPackage
     const handleInputChange = (event) => {
         setPassenger({
           ...passenger,
@@ -48,17 +48,14 @@ const EditPassengers = () => {
     };
 
 
-    /*  UPDATE DATA */
+    // UPDATE DATA
     const updateData = async (id) => {
-
         const config = {
             headers: {
                 "Content-Type": "application/json",
             },
         };
-        
         alert("your passenger details successfully updated");    
-        // toast.success(`your package details successfully updated`);
         await axios.put(
           `http://localhost:8070/passengers/update/${id}`,
           passenger,
@@ -74,10 +71,10 @@ const EditPassengers = () => {
             bloodAmount: passenger.passengerType,
             gender: passenger.state
           });
-          // toast.success(`your package details successfully updated`);
           window.location.href = "/allpassengers";
-  
     };
+
+
 
     return (
       <React.Fragment>
