@@ -1,5 +1,5 @@
 import React from 'react'
-import admin_profile from "../../images/admin_profile.jpg"
+import admin_profile from "../../Images/admin_profile.jpg"
 
 const Search = () => {
     return (

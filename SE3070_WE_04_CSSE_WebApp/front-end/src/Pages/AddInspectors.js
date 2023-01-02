@@ -8,6 +8,7 @@ import NavigationBar from './Components/NavigationBar'
 import Search from './Components/Search'
 
 
+
 const AddInspectors = () => {
 
   const [formData, setFormData] = useState({

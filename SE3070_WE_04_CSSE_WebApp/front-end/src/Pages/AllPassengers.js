@@ -2,8 +2,9 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import "./admin-style.css"
-import admin_profile from "../images/admin_profile.jpg"
+import admin_profile from "../Images/admin_profile.jpg"
 import NavigationBar from './Components/NavigationBar'
+
 
 const AllPassengers = () => {
 
