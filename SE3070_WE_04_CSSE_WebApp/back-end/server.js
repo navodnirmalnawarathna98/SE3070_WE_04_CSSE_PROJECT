@@ -21,8 +21,49 @@ mongoose.connect(URL, {
 
 const connection = mongoose.connection; // MongoDB Connection
 connection.once("open", () => {
-  console.log("MongoDB Database Connection Successfull"); // Display in console if connection is successful
+  console.log("MongoDB Database Connection Successfull");
 });
+
+
+module.exports = (function () {
+  let connectionInstance;
+  let db;
+
+  function getInstance() {
+    return new mongoose.Promise(function (resolve, reject) {
+      if (connectionInstance) {
+        return resolve(connectionInstance);
+      }
+
+      const options = {
+        useNewUrlParser: true
+      };
+      mongoose.connect(dotenv.config.db.URL, options, function (err, client) {
+        if(err) {
+          return reject(err);
+        }
+
+        connectionInstance = client;
+        db = client.db(config.db.name);
+
+        return resolve(connectionInstance);
+      });
+    });
+  }
+
+  function getDb() {
+    if(!db) {
+      throw new Error("DB object is not initialized!");
+    }
+    console.log("MongoDB Database Connection Successfull"); // Display in console if connection is successful
+    return db;
+  }
+
+  return {
+    getInstance,
+    getDb
+  };
+})
 
  // add passengers route
  const passengersRouter = require("./routes/passengersRouter");
